@@ -45,7 +45,7 @@ jobs:
       with:
         context: libre
         platforms: linux/amd64,linux/arm64
-        push: true
+        push: ${{ github.event_name != 'pull_request' }}
         tags: |
           ghcr.io/${{ env.IMAGE_NAME }}:${{ env.VERSION_RE }}
           ghcr.io/${{ env.IMAGE_NAME }}:latest
@@ -76,7 +76,7 @@ jobs:
       with:
         context: baresip
         platforms: linux/amd64,linux/arm64
-        push: true
+        push: ${{ github.event_name != 'pull_request' }}
         tags: |
           ghcr.io/${{ env.IMAGE_NAME }}:${{ env.VERSION_BARESIP }}
           ghcr.io/${{ env.IMAGE_NAME }}:latest
@@ -109,7 +109,7 @@ jobs:
       with:
         context: baresip-apps
         platforms: linux/amd64,linux/arm64
-        push: true
+        push: ${{ github.event_name != 'pull_request' }}
         tags: |
           ghcr.io/${{ env.IMAGE_NAME }}:${{ env.VERSION_BARESIP_APPS }}
           ghcr.io/${{ env.IMAGE_NAME }}:latest
